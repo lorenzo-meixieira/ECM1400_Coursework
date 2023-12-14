@@ -26,7 +26,7 @@ A log file has been created called battleships.log that stores logging events of
 * I have added another algorithm to the place_battleships function called "strategic". The algorithm will choose a random pre-calculated placement configuration stored in the strategic_placements.json file and place the AI's ships according to that configuration.
 * There are 20 different pre-calculated configurations based on these references: 
     * [https://www.instructables.com/How-to-Win-at-Battleship/#https://www.instructables.com/How-to-Win-at-Battleship/#]
-    * [https://www.thesprucecrafts.com/how-to-win-at-battleship-411068#:~:text=Be%20asymmetrical%3A%20In%20other%20words,after%20finding%20the%20first%20one.]
+    * [https://www.thesprucecrafts.com/how-to-win-at-battleship-411068#:~:text=Be%20asymmetrical%3A%20In%20other%20words,after%20finding%20the%20first%20one]
 * The main talking points are to mostly place ships vertically as there is a natural tendancy to scan horizontally while a user is playing, to leave empty space between ships and avoiding the ships from touching.
 * If you want to test it out, just change the algorithm of the AI's place_battleships function in mp_game_engine.py or main.py to "strategic".
 
@@ -51,7 +51,18 @@ This project is a Battleships game constructed by the University of Exeter which
 ## Prerequisites
 
 #### The Python packages required to run this are:
-
+Python version 3.11.5 <br>
+blinker==1.7.0 <br>
+click==8.1.7 <br>
+Flask==3.0.0 <br>
+iniconfig==2.0.0 <br>
+itsdangerous==2.1.2 <br>
+Jinja2==3.1.2 <br>
+MarkupSafe==2.1.3 <br>
+packaging==23.2 <br>
+pluggy==1.3.0 <br>
+pytest==7.4.3 <br>
+Werkzeug==3.0.1 <br>
 
 
 These can also be seen in a file called requirements.txt
@@ -124,8 +135,8 @@ The format you will need to follow is:
 
 9. The game will terminate once either all of your ships or all of the AI's ships are sunken.
 
-*NOTE - if you want to play against the extreme mode version of the AI's hits, in the **main.py module**, uncomment everything from line 111 till line 221. This will uncomment the process_attack_targeting_mode method and the variables associated with it. 
-You must also then comment out the process_attack function from line 52 to line 109, so that the game will not get confused between the two methods as they have the same URL request. This will activate the extreme targeting mode for the AI which can only be used in the web interface version of the game.*
+*NOTE - if you want to play against the extreme mode version of the AI's hits, in the **main.py module**, uncomment everything from line 120 till line 234. This will uncomment the process_attack_targeting_mode method and the variables associated with it. 
+You must also then comment out the process_attack function from line 58 to line 118, so that the game will not get confused between the two methods as they have the same URL request. This will activate the extreme targeting mode for the AI which can only be used in the web interface version of the game.*
 
 ## Testing
 
@@ -144,7 +155,7 @@ Documentation can be seen throughout the project, in each module with docstrings
 
 My Sphinx documentation can be found by opening `docs/_build/html/index.html` in my projects' folder.
 
-*NOTE - I had issues generating the document so I moved things around in directories to get it to at least generate just the names of the modules, by placing all modules in a 'battleship' folder, then moved all modules back out into the main folder. I spoke to Matt and other TA's and no one could solve the issue, however I still have the generation of the index.html file to show you I've attempted to generate the document.*
+*NOTE - I had issues generating the document so I moved things around in directories to get it to at least generate just the names of the modules, by placing all modules in a 'battleship' folder, then moved all modules back out into the main folder. I spoke to Matt and other TA's and no one could solve the issue, however I still have the generation of the index.html file to show you I've attempted to generate the document. <br> Commands I used to attempt to generate the document: <br> `cd docs` <br> `sphinx-quickstart` <br> `sphinx-apidoc -o . ..` between this and the next command, I altered the confy.py file to add the necessary extensions and uncommented the path and changed the parameter to .. <br> `make html`*
 
 Logs of events taking place within the program can be viewed by opening the `battleships.log` file. This log file will store any significant processes from the program, including errors.
 
@@ -168,4 +179,5 @@ This was a coursework for ECM1400, a first year first term module for Computer S
 
 Author: N/A <br>
 License: MIT License which can be found in the projects root directory under **/LICENSE/license.txt** <br>
-Handle:
+Handle: lorenzo-meixieira
+Link to GitHub Repo: [https://github.com/lorenzo-meixieira/ECM1400_Coursework]

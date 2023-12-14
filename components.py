@@ -20,7 +20,7 @@ def initialise_board(size: int = 10) -> list[list]:
     return board
 
 def create_battleships(filename: str = "battleships.txt")-> dict[str, int]:
-    """Function used to retrieve each battle ship and their size
+    """Function used to retrieve and create each battle ship and their size
     
     :param filename: a string value containing the name of the txt file 
     containing the name of the ships with their respective size
@@ -48,7 +48,8 @@ def create_battleships(filename: str = "battleships.txt")-> dict[str, int]:
     return battleships
 
 def check_ways_to_place(length: str, board: list[list]) -> [str, str, str]:
-    """Function used check which orientation is possible for each ship to be placed on the board.
+    """Function used check which orientation is possible for each ship to be placed on the board
+    for the random placement algorithm.
     
     :param length: a string value containing the length of each ship from the battleships.txt file
     :param board: a nested list of length (default 10 but it depends of 

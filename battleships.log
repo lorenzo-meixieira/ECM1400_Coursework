@@ -1857,3 +1857,88 @@ KeyError: 'Player_1'
 2023-12-14 12:28:41 INFO: No ships were hit on the AI's board
 2023-12-14 12:28:42 INFO: No ships were hit on the user's board
 2023-12-14 12:28:43 INFO: The board was sent to the command-line in ai opponent game loop.
+2023-12-14 19:44:56 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-14 19:44:56 INFO: [33mPress CTRL+C to quit[0m
+2023-12-14 19:45:05 INFO: The users' board was successfully processed.
+2023-12-14 19:45:05 ERROR: Exception on / [GET]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lorenzomeixieira/Library/CloudStorage/OneDrive-UniversityofExeter/Exeter 1st Year/Programming/Assessment/ECM1400_Coursework/main.py", line 56, in root
+    return render_template('main.html', player_board = players["Player_1"])
+                                                       ~~~~~~~^^^^^^^^^^^^
+KeyError: 'Player_1'
+2023-12-14 19:45:05 INFO: 127.0.0.1 - - [14/Dec/2023 19:45:05] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2023-12-14 19:45:09 INFO: 127.0.0.1 - - [14/Dec/2023 19:45:09] "GET /placement HTTP/1.1" 200 -
+2023-12-14 19:45:16 INFO: Arragements were found for the ships on this iteration
+2023-12-14 19:45:16 INFO: Arragements were found for the ships on this iteration
+2023-12-14 19:45:16 INFO: Arragements were found for the ships on this iteration
+2023-12-14 19:45:16 INFO: Arragements were found for the ships on this iteration
+2023-12-14 19:45:16 INFO: Arragements were found for the ships on this iteration
+2023-12-14 19:45:16 INFO: 127.0.0.1 - - [14/Dec/2023 19:45:16] "POST /placement HTTP/1.1" 200 -
+2023-12-14 19:45:17 INFO: The users' board was successfully processed.
+2023-12-14 19:45:17 INFO: 127.0.0.1 - - [14/Dec/2023 19:45:17] "GET / HTTP/1.1" 200 -
+2023-12-14 19:45:17 INFO: The AI attacked the users board and the user has attacked the AI's board
+2023-12-14 19:45:17 INFO: The player has missed the AI's ships
+2023-12-14 19:45:17 INFO: The AI has missed the player's ships
+2023-12-14 19:45:17 INFO: 127.0.0.1 - - [14/Dec/2023 19:45:17] "GET /attack?x=7&y=5 HTTP/1.1" 200 -
+2023-12-14 19:45:17 INFO: The AI attacked the users board and the user has attacked the AI's board
+2023-12-14 19:45:17 INFO: The player has missed the AI's ships
+2023-12-14 19:45:17 INFO: The AI has hit the player's ship!
+2023-12-14 19:45:17 INFO: 127.0.0.1 - - [14/Dec/2023 19:45:17] "GET /attack?x=3&y=4 HTTP/1.1" 200 -
+2023-12-14 19:45:17 INFO: The AI attacked the users board and the user has attacked the AI's board
+2023-12-14 19:45:17 INFO: The player has missed the AI's ships
+2023-12-14 19:45:17 INFO: The AI has hit the player's ship!
+2023-12-14 19:45:17 INFO: 127.0.0.1 - - [14/Dec/2023 19:45:17] "GET /attack?x=3&y=1 HTTP/1.1" 200 -
+2023-12-14 19:45:18 INFO: The AI attacked the users board and the user has attacked the AI's board
+2023-12-14 19:45:18 INFO: The player has hit the AI's ship!
+2023-12-14 19:45:18 INFO: The AI has missed the player's ships
+2023-12-14 19:45:18 INFO: 127.0.0.1 - - [14/Dec/2023 19:45:18] "GET /attack?x=4&y=4 HTTP/1.1" 200 -
+2023-12-14 19:45:18 INFO: The AI attacked the users board and the user has attacked the AI's board
+2023-12-14 19:45:18 INFO: The player has missed the AI's ships
+2023-12-14 19:45:18 INFO: The AI has missed the player's ships
+2023-12-14 19:45:18 INFO: 127.0.0.1 - - [14/Dec/2023 19:45:18] "GET /attack?x=5&y=3 HTTP/1.1" 200 -
+2023-12-14 19:45:19 INFO: The AI attacked the users board and the user has attacked the AI's board
+2023-12-14 19:45:19 INFO: The player has missed the AI's ships
+2023-12-14 19:45:19 INFO: The AI has missed the player's ships
+2023-12-14 19:45:19 INFO: 127.0.0.1 - - [14/Dec/2023 19:45:19] "GET /attack?x=2&y=8 HTTP/1.1" 200 -
+2023-12-14 19:45:19 INFO: The AI attacked the users board and the user has attacked the AI's board
+2023-12-14 19:45:19 INFO: The player has missed the AI's ships
+2023-12-14 19:45:19 INFO: The AI has missed the player's ships
+2023-12-14 19:45:19 INFO: 127.0.0.1 - - [14/Dec/2023 19:45:19] "GET /attack?x=4&y=1 HTTP/1.1" 200 -
+2023-12-14 19:45:20 INFO: The AI attacked the users board and the user has attacked the AI's board
+2023-12-14 19:45:20 INFO: The player has missed the AI's ships
+2023-12-14 19:45:20 INFO: The AI has missed the player's ships
+2023-12-14 19:45:20 INFO: 127.0.0.1 - - [14/Dec/2023 19:45:20] "GET /attack?x=7&y=1 HTTP/1.1" 200 -
+2023-12-14 19:45:57 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-14 19:45:57 INFO: [33mPress CTRL+C to quit[0m
+2023-12-14 19:49:07 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-14 19:49:07 INFO: [33mPress CTRL+C to quit[0m
+2023-12-14 19:49:27 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-14 19:49:27 INFO: [33mPress CTRL+C to quit[0m
+2023-12-14 19:49:36 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-14 19:49:36 INFO: [33mPress CTRL+C to quit[0m
+2023-12-14 19:49:41 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-14 19:49:41 INFO: [33mPress CTRL+C to quit[0m
+2023-12-14 19:49:55 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-14 19:49:55 INFO: [33mPress CTRL+C to quit[0m
+2023-12-14 19:50:00 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-14 19:50:00 INFO: [33mPress CTRL+C to quit[0m

@@ -31,15 +31,21 @@ def placement_interface() -> None:
         return render_template('placement.html', ships = user_ships , board_size = len(user_board))
     if request.method == "POST":
         data = request.get_json()
+        # Check to see if the data fetched from the json file matches the number of ships
+        # that are available to place.
         if len(data) != len(user_ships):
             logging.error("Not all ships were placed by the user")
             raise ValueError("Not all ships that are within in the dictionary were placed.")
         else:
-            with open('placement.json', 'w', encoding = "UTF-8") as file:
-                json.dump(data, file)
-            players["Player_1"] = components.place_battleships(user_board, user_ships,"custom")
-            players["AI_Player"] = components.place_battleships(ai_board, ai_ships, "random")
-            return jsonify({'message': 'Received'}), 200
+            try:
+                with open('placement.json', 'w', encoding = "UTF-8") as file:
+                    json.dump(data, file)
+                players["Player_1"] = components.place_battleships(user_board, user_ships,"custom")
+                players["AI_Player"] = components.place_battleships(ai_board, ai_ships, "random")
+                return jsonify({'message': 'Received'}), 200
+            except FileNotFoundError as fne:
+                logging.error("The file that you are trying to write to does not exist.")
+                raise FileNotFoundError("placement.json file not found.") from fne
 
 @app.route(rule = "/", methods = ["GET"])
 def root() -> None:
@@ -64,12 +70,14 @@ def process_attack() -> None:
         y = request.args.get('y')
         user_attack = (x, y)
         player_attack_result = game_engine.attack((x,y), players["AI_Player"], ai_ships)
+        # Check to see if an attack by the user has already been guessed
         while user_attack in previous_user_attacks:
             logging.warning("The user has clicked on the same sqaure more than once")
             return "Error - the user has clicked on the same sqaure more than once"
         previous_user_attacks.append(user_attack)
 
         ai_attack = mp_game_engine.generate_attack()
+        # Check to see if an attack by the user has already been guessed
         while ai_attack in previous_ai_attacks:
             logging.warning("The AI has tried to guess on the same square as its previous attacks.")
             ai_attack = mp_game_engine.generate_attack()
@@ -79,6 +87,7 @@ def process_attack() -> None:
         game_won = False
         game_lost = False
 
+        #Check to see if all ships have been sunken for either the AI or the user
         user_ships_sunk = all(value == 0 for value in user_ships.values())
         ai_ships_sunk = all(value == 0 for value in ai_ships.values())
         if ai_ships_sunk is True:
@@ -134,6 +143,7 @@ def process_attack() -> None:
 #         y = request.args.get('y')
 #         user_attack = (x, y)
 #         player_attack_result = game_engine.attack((x,y), players["AI_Player"], ai_ships)
+#         # Check to see if an attack by the user has already been guessed
 #         while user_attack in previous_user_attacks:
 #             logging.warning("The user has clicked on the same sqaure more than once")
 #             return "Error - the user has clicked on the same sqaure more than once"
@@ -176,6 +186,7 @@ def process_attack() -> None:
 #             targeting_mode = False
 #         if targeting_mode is False:
 #             ai_attack = mp_game_engine.generate_attack()
+#             # Check to see if an attack by the AI has already been guessed
 #             while ai_attack in previous_ai_attacks:
 #                 logging.warning("The AI has tried to guess on the "
 #                                 "same square as its previous attacks.")
@@ -184,6 +195,7 @@ def process_attack() -> None:
 #             ai_x, ai_y = ai_attack
 #             type_of_ship_hit = user_board[int(ai_y)][int(ai_x)]
 #             ai_attack_result = game_engine.attack(ai_attack, players["Player_1"], user_ships)
+#             # Check to see if a hit was registered
 #             if ai_attack_result is True:
 #                 targeting_mode = True
 #                 ai_next_hits = mp_game_engine.targeting_mode(ai_attack,players["Player_1"],
@@ -191,6 +203,7 @@ def process_attack() -> None:
 #                 for attack in ai_next_hits:
 #                     previous_ai_attacks.append(attack)
 
+#         # Check to see if all ships have been sunken by either AI or player
 #         user_ships_sunk = all(value == 0 for value in user_ships.values())
 #         ai_ships_sunk = all(value == 0 for value in ai_ships.values())
 #         if ai_ships_sunk is True:

@@ -59,6 +59,7 @@ def simple_game_loop() -> None:
     # A check to determine if all the ships were sunk
     while all(value == 0 for value in ships.values()) is False:
         player_input = cli_coordinates_input()
+        # Check to see if the attack has already been guessed
         while player_input in previous_attacks:
             logging.warning("The user guessed the same location more than once")
             print("You have already guessed at that co-ordinate, choose another one!")
